@@ -1,0 +1,76 @@
+kittahbr2017-08-27 13:26:02I have 3 separate calls requesting for help and 911 rings busy we have been waiting on hold for 5 hours!{"Recipient": "I have 3 separate calls requesting for help and 911 rings busy we have been waiting on hold for", "AddressNumber": "5", "StreetName": "hours!"}
+
+
+kittahbr2017-08-27 13:43:23A 3rd party trying to help them and they can't get through to 911 they have medical emergencies{"Recipient": "A 3rd party trying to help them and they can't get through to", "AddressNumber": "911", "StreetName": "they have medical emergencies"}
+
+
+bornidentityP2017-08-27 14:25:52Second family needing help...@HoustonOEM water rescue at 6018 McKnight Street 77035. Please RT.{"StreetNamePostType": "Street", "Recipient": "Second family needing help...@HoustonOEM water rescue at", "AddressNumber": "6018", "StreetName": "McKnight", "NotAddress": "77035. Please RT."}
+
+
+JasonSamfield2017-08-27 15:20:36Call 911? How is Twitter going to help?{"SubaddressType": "Call", "StreetNamePostType": "is", "AddressNumber": "911?", "PlaceName": "Twitter going", "StateName": "to help?", "StreetName": "How"}
+
+
+Darfurpeace2017-08-27 15:59:10#houstonflood #HurricaneHarvey @HoustonTX @SylvesterTurner @HoustonOEM @KPRC2 help this Apartment complex ASAP 9101 Burdine St Houston 77096 pic.twitter.com/17UTZulAoM{"StreetNamePostType": "St", "OccupancyType": "Houston", "AddressNumber": "9101", "OccupancyIdentifier": "77096 pic.twitter.com/17UTZulAoM", "Recipient": "# houstonflood # HurricaneHarvey HoustonTX SylvesterTurner HoustonOEM KPRC2 help this Apartment complex ASAP", "StreetName": "Burdine"}
+
+
+CBM18152017-08-27 16:02:07person in attic asking for help 5823 Reamer St. Meyerland{"StreetNamePostType": "St.", "PlaceName": "Meyerland", "Recipient": "person in attic asking for help", "AddressNumber": "5823", "StreetName": "Reamer"}
+
+
+poodlegirl082017-08-27 17:20:26@KHOU @abc13houston @Fox26Houston  Please help these elderly people at 6822 Easthaven, Houston{"PlaceName": "Houston", "Recipient": "KHOU abc13houston Fox26Houston Please help these elderly people at", "AddressNumber": "6822", "StreetName": "Easthaven"}
+
+
+DoctorRobin2017-08-27 20:14:12@FEMA
+@RedCross
+@HoustonOEM
+@cohoustonfire
+Please help. 6606 Reamer St, Houston, Tx 77074{"StreetNamePostType": "St", "PlaceName": "Houston", "AddressNumber": "6606", "StateName": "Tx", "Recipient": "FEMA\n RedCross\n HoustonOEM\n cohoustonfire\n Please help.", "ZipCode": "77074", "StreetName": "Reamer"}
+
+
+REALMsHill2017-08-27 20:41:53@uscoastguard #Houston #houwx Help Needed! Families Stuck! 8754 Homewood Ln 77028 @ReadyHarris @HoustonOEM{"StreetNamePostType": "Ln", "PlaceName": "ReadyHarris HoustonOEM", "AddressNumber": "8754", "OccupancyIdentifier": "77028", "Recipient": "uscoastguard # Houston # houwx Help Needed! Families Stuck!", "StreetName": "Homewood"}
+
+
+PooleLoe2017-08-27 23:05:29@SheriffEd_HCSO @cohoustonfire @HoustonOEM
+
+I need help here immediately. Emergency agencies are not responding. 
+9327 Homewood Ln 77078{"StreetNamePostType": "Ln", "Recipient": "SheriffEd_HCSO cohoustonfire HoustonOEM\n\n I need help here immediately. Emergency agencies are not responding.", "AddressNumber": "9327", "StreetName": "Homewood", "ZipCode": "77078"}
+
+
+YazTwits2017-08-28 02:11:25@HoustonOEM @houstonpolice URGENT PLZ, Female got bitten by a snake 5hrs ago, no help arrived - She's suffocating. 301 Wilcrest Dr Apt# 6709{"StreetNamePostType": "Dr", "OccupancyType": "Apt", "AddressNumber": "301", "OccupancyIdentifier": "# 6709", "Recipient": "HoustonOEM houstonpolice URGENT PLZ, Female got bitten by a snake 5hrs ago, no help arrived She's suffocating.", "StreetName": "Wilcrest"}
+
+
+YazTwits2017-08-28 02:16:06@abc13houston @HoustonOEM URGENT PLZ, Female got bitten by a snake 5hrs ago, no help arrived - She's suffocating. 301 Wilcrest Dr Apt# 6709{"StreetNamePostType": "Dr", "OccupancyType": "Apt", "AddressNumber": "301", "OccupancyIdentifier": "# 6709", "Recipient": "abc13houston HoustonOEM URGENT PLZ, Female got bitten by a snake 5hrs ago, no help arrived She's suffocating.", "StreetName": "Wilcrest"}
+
+
+YazTwits2017-08-28 02:22:17@GHC911 @HoustonOEM URGENT PLZ, Female got bitten by a snake 5hrs ago, no help arrived - She's suffocating. 301 Wilcrest Dr Apt# 6709{"StreetNamePostType": "Dr", "OccupancyType": "Apt", "AddressNumber": "301", "OccupancyIdentifier": "# 6709", "Recipient": "GHC911 HoustonOEM URGENT PLZ, Female got bitten by a snake 5hrs ago, no help arrived She's suffocating.", "StreetName": "Wilcrest"}
+
+
+PooleLoe2017-08-28 03:05:3411927 Drummond Park Houston Tx 77044 need help family members and friends stuck  @SheriffEd_HCSO @cohoustonfire @HoustonOEM{"StreetNamePostType": "Park", "PlaceName": "Houston", "AddressNumber": "11927", "StateName": "Tx", "Recipient": "need help family members and friends stuck SheriffEd_HCSO cohoustonfire HoustonOEM", "ZipCode": "77044", "StreetName": "Drummond"}
+
+
+PooleLoe2017-08-28 04:44:274055 s brazewood, Houston need help at Stella link near bakery, DIRE NEED MORE RESCUERS..300 people need  @cohoustonfire @HoustonOEM{"AddressNumber": "4055", "Recipient": "Houston need help at Stella link near bakery, DIRE NEED MORE RESCUERS..300 people need cohoustonfire HoustonOEM", "StreetNamePreDirectional": "s", "StreetName": "brazewood"}
+
+
+PooleLoe2017-08-28 06:49:37HELP: 8427 Talton St Houston, Texas 77028 NEEDS RESUCED SOMEONE WITH A BOAT  @SheriffEd_HCSO @cohoustonfire @HoustonOEM{"SubaddressType": "HELP:", "StreetNamePostType": "St", "PlaceName": "Houston", "StateName": "Texas", "ZipCode": "77028", "AddressNumber": "8427", "Recipient": "NEEDS RESUCED SOMEONE WITH A BOAT SheriffEd_HCSO cohoustonfire HoustonOEM", "StreetName": "Talton"}
+
+
+SchemeGod72017-08-28 15:44:41@HoustonOEM @abc13houston Everybody please Retweet my friend mother is stuck without any help Address: 12402 greenmesa dr 77044 pic.twitter.com/rrkmS9XCdC{"StreetNamePostType": "dr", "OccupancyIdentifier": "77044 pic.twitter.com/rrkmS9XCdC", "Recipient": "HoustonOEM abc13houston Everybody please Retweet my friend mother is stuck without any help Address:", "AddressNumber": "12402", "StreetName": "greenmesa"}
+
+
+terilyns682017-08-28 15:55:53#HarveyFlood @HoustonOEM please send help for these people. There's 11 of them trapped and the house is submerged. https://twitter.com/AirRin21/status/902197491411628032 …{"StreetNamePostType": "is", "OccupancyType": "submerged.", "AddressNumber": "11", "OccupancyIdentifier": "https://twitter.com/AirRin21/status/902197491411628032", "Recipient": "# HarveyFlood HoustonOEM please send help for these people. There's", "StreetName": "of them trapped and the house"}
+
+
+StevenB9042017-08-28 16:21:24@HoustonOEM how can we help? 50+ engineers/inspectors in area, 120 in TX, & 1000 total. We know debris monitoring/design bid packages/CEI{"StreetNamePostType": "in", "SubaddressType": "area", "BuildingName": "in TX, & 1000 total. We know debris monitoring/design bid packages/CEI", "AddressNumber": "50+", "SubaddressIdentifier": "120", "Recipient": "HoustonOEM how can we help?", "StreetName": "engineers/inspectors"}
+
+
+3rd_CoastGirl2017-08-28 19:12:55@houstonoem Our business is located near downtown & we have trucks that could be avail 4 help. If there's a need pls direct me how 2 help{"Recipient": "houstonoem Our business is located near downtown & we have trucks that could be avail 4 help. If there's a need pls direct me how", "AddressNumber": "2", "StreetName": "help"}
+
+
+Tribulation72017-08-28 20:02:54@HoustonOEM Grief counselors will help. Avg. temps will be in low 90's.  Plenty of ice, water & mosquito repellant...not soon 2 look ahead.{"Recipient": "HoustonOEM Grief counselors will help. Avg. temps will be in low 90's. Plenty of ice, water & mosquito repellant...not soon", "AddressNumber": "2", "StreetName": "look ahead."}
+
+
+kelseykattt2017-08-31 00:16:32Help is on the way{"StreetNamePostType": "is", "IntersectionSeparator": "on", "SecondStreetName": "the", "StreetName": "Help", "SecondStreetNamePostType": "way"}
+
+
+MSVmobileunits2017-09-02 19:09:02@HoustonOEM @BrazoriaCounty if one of our tactical vehicles or command centers can help, please call 409.384.0832 https://hubs.ly/H08xycG0 pic.twitter.com/SH1rqHPLvA{"OccupancyIdentifier": "https://hubs.ly/H08xycG0 pic.twitter.com/SH1rqHPLvA", "Recipient": "HoustonOEM BrazoriaCounty if one of our tactical vehicles or command centers can help, please call", "AddressNumber": "409.384.0832"}
+
+
