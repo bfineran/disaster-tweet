@@ -15,16 +15,15 @@ def searchquery(keyword, numsearches, filename, sinceid):
 		except:
 			continue
 
-		if confidence is not "Ambiguous":
-			print(tweet.user.encode('utf-8'))
-			print(tweet.timestamp)
-			timestr = tweet.timestamp.strftime("%Y-%m-%d %H:%M:%S")
-			print(text)
-			print(addr)
-			contents = tweet.user.encode('utf-8') + timestr + text + json.dumps(dict(addr)) + "\n\n\n"
-			filename.write(contents)
-			if int(tweet.id) > maxid:
-				maxid = int(tweet.id)
+		print(tweet.user.encode('utf-8'))
+		print(tweet.timestamp)
+		timestr = tweet.timestamp.strftime("%Y-%m-%d %H:%M:%S")
+		print(text)
+		print(addr)
+		contents = tweet.user.encode('utf-8') + timestr + text + json.dumps(dict(addr)) + "\n\n\n"
+		filename.write(contents)
+		if int(tweet.id) > maxid:
+			maxid = int(tweet.id)
 	return maxid
 
 print("HELOOWOWSOISOHSFIU")
@@ -44,5 +43,7 @@ for line in Q:
 		newmaxid = newid
 	print("\n\n\n")
 	print("finished search for " + line)
+C.close()
 
-C.write(str(newmaxid))
+D = open("config.txt", "w")
+D.write(str(newmaxid))
