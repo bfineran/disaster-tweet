@@ -20,10 +20,10 @@ def searchnumber(wholetext):
 
 
 
-def searchquery(keyword, numsearches, filename, sinceid):
-	maxid = sinceid
+def searchquery(keyword, numsearches):
+	prev_keys = []
 	writer = DBWriter()
-	for tweet in twitterscraper.query.query_tweets(keyword + " since_id:" + str(sinceid), numsearches)[:numsearches]:
+	for tweet in twitterscraper.query.query_tweets(keyword, numsearches)[:numsearches]:
 		text = tweet.text.encode('utf-8')
 		try:
 			addr, confidence = usaddress.tag(text)
@@ -31,14 +31,9 @@ def searchquery(keyword, numsearches, filename, sinceid):
 			continue
 
 		if confidence is not "Ambiguous":
-			print(tweet.user.encode('utf-8'))
-			print(tweet.timestamp)
 			timestr = tweet.timestamp.strftime("%Y-%m-%d %H:%M:%S")
-			print(text)
-			print(addr)
 			realphone = searchnumber(text)
 			contents = tweet.fullname.encode('utf-8') + '\t' + tweet.user.encode('utf-8') + '\t' + timestr + '\t' +  str(realphone) + '\t' + text + '\t' + json.dumps(dict(addr)) + "\t" + "\n"
-			filename.write(contents)
 
 			addrs = dict(addr)
 			b = True
@@ -49,32 +44,27 @@ def searchquery(keyword, numsearches, filename, sinceid):
 			if 'StreetName' not in addrs:
 				b = False
 			if b:
+				print(tweet.user.encode('utf-8'))
+ 				print(tweet.timestamp)
 				address = addrs['AddressNumber'] + ' ' + addrs['StreetName'] + ' ' + addrs['StreetNamePosType']
-				writer.add_item(str(address), tweet.user.encode('utf-8'), tweet.fullname.encode('utf-8'), text, timestr, 'Houston, TX')
+				try:
+					if address in prev_keys:
+						print(address)
+						continue
+					prev_keys.append(str(address))
+					writer.add_item(str(address), tweet.user.encode('utf-8'), tweet.fullname.encode('utf-8'), text, timestr, 'Houston, TX')
+				except:
+					continue
 
-
-
-			if int(tweet.id) > maxid:
-				maxid = int(tweet.id)
 	writer.write_to_db()
-	return maxid
+	return
 
 print("HELOOWOWSOISOHSFIU")
 
-F = open("tweetsfile.txt", "w")
-Q = open("searchterms.txt", "r")
-C = open("config.txt", "r+")
 
-startid = int(C.readline())
-newmaxid = 0
+Q = {"@houstonoem help", "@houstonpolice help since:2017-08-25 until:2017-08-28"}
 
 for line in Q:
 	print("New Query:")
-	newid = searchquery(line, 1000, F, startid)
-	if newid > newmaxid:
-		newmaxid = newid
+	searchquery(line, 1000)
 	print("finished search for " + line)
-C.close()
-
-D = open("config.txt", "w")
-D.write(str(newmaxid))
