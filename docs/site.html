@@ -73,6 +73,10 @@ div.tab button.active {
 </div>
 
 
+
+
+<script src="get-data.js"/>
+
 <script>
 function openContent(evt, cityName) {
     var i, tabcontent, tablinks;
@@ -90,6 +94,11 @@ function openContent(evt, cityName) {
 
 // Get the element with id="defaultOpen" and click on it
 document.getElementById("defaultOpen").click();
+data = httpGetAsync("https://4n47ld228f.execute-api.us-east-1.amazonaws.com/prod/disasterTweetReader", function(){
+  console.log("Callback") 
+})
+console.log(data)
+
 </script>
      
 </body>
