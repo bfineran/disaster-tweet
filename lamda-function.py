@@ -3,7 +3,7 @@ import boto3
 import json
 
 print('Loading function')
-session = boto3.Session("AKIAI4GDENM2IS4GKAFQ", "YocZ2ygfUnaGKf2eEDLvT+LN5k1mu8hfmi6wErSc")
+session = boto3.Session("", "") # AWS CREDENTIALS GO HERE
 dynamo = session.resource('dynamodb')
 
 
