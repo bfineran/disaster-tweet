@@ -10,7 +10,7 @@ import twitterscraper
 
 def searchquery(keyword, numsearches, filename, sinceid):
 	maxid = sinceid
-	writer = DBWriter
+	writer = DBWriter()
 	for tweet in twitterscraper.query.query_tweets(keyword + " since_id:" + str(sinceid), numsearches)[:numsearches]:
 		text = tweet.text.encode('utf-8')
 		try:
@@ -28,16 +28,22 @@ def searchquery(keyword, numsearches, filename, sinceid):
 			filename.write(contents)
 
 			addrs = dict(addr)
+			b = True
 			if 'StreetNamePosType' not in addrs:
 				addrs['StreetNamePosType'] = ''
-			address = addrs['AddressNumber'] + ' ' + addrs['StreetName'] + ' ' + addr['StreetNamePosType']
-			DBWriter.add_item(address, tweet.user.encode('utf-8'), text, timestr, 'Huston, TX')
+			if 'AddressNumber' not in addrs:
+				b = False
+			if 'StreetName' not in addrs:
+				b = False
+			if b:
+				address = addrs['AddressNumber'] + ' ' + addrs['StreetName'] + ' ' + addrs['StreetNamePosType'] + '\t' + timestr
+				writer.add_item(str(address), tweet.user.encode('utf-8'), text, timestr, 'Houston, TX')
 
 
 
 			if int(tweet.id) > maxid:
 				maxid = int(tweet.id)
-	DBWriter.write_to_db()
+	writer.write_to_db()
 	return maxid
 
 print("HELOOWOWSOISOHSFIU")

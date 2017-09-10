@@ -48,7 +48,7 @@ class DBWriter(object):
 	def write_to_db(self):
 		table = dynamodb.Table('disasterdata')
 		with table.batch_writer() as batch:
-		    for item in items
+		    for item in self.items:
 		        batch.put_item(
 		            item
 		        )
