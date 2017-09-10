@@ -72,7 +72,7 @@ div.tab button.active {
 <div id="Map" class="tabcontent">
   <span onclick="this.parentElement.style.display='none'" class="topright">x</span>
   <h3>Map</h3>
-  <div id = "map" style="width:500px;height:500px"></div>
+  <div id = "map" style="width:100%;height:500px"></div>
 </div>
 
 <div id="Table" class="tabcontent">
@@ -179,13 +179,13 @@ xhr.onload = function(data) {
 
 
     var map = new google.maps.Map(document.getElementById('map'), {
-            zoom: 7,
+            zoom: 10,
             center: coords
             // mapTypeID: 'terrain'
          });
     console.log(processedData)
     for (entry of processedData){
-        address = entry[3] + " Houston, TX"
+        address = entry[3] + "Houston"
         console.log(address)
         geocodeAddress(geocoder, address, map)
     } 
