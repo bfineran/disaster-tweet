@@ -3,11 +3,14 @@ import os
 import usaddress
 import datetime
 import json
+from dbfuns import DBWriter
+
 
 import twitterscraper
 
 def searchquery(keyword, numsearches, filename, sinceid):
 	maxid = sinceid
+	writer = DBWriter
 	for tweet in twitterscraper.query.query_tweets(keyword + " since_id:" + str(sinceid), numsearches)[:numsearches]:
 		text = tweet.text.encode('utf-8')
 		try:
@@ -23,8 +26,18 @@ def searchquery(keyword, numsearches, filename, sinceid):
 			print(addr)
 			contents = tweet.user.encode('utf-8') + '\t' + timestr + '\t' + text + '\t' + json.dumps(dict(addr)) + "\t" + "\n"
 			filename.write(contents)
+
+			addrs = dict(addr)
+			if 'StreetNamePosType' not in addrs:
+				addrs['StreetNamePosType'] = ''
+			address = addrs['AddressNumber'] + ' ' + addrs['StreetName'] + ' ' + addr['StreetNamePosType']
+			DBWriter.add_item(address, tweet.user.encode('utf-8'), text, timestr, 'Huston, TX')
+
+
+
 			if int(tweet.id) > maxid:
 				maxid = int(tweet.id)
+	DBWriter.write_to_db()
 	return maxid
 
 print("HELOOWOWSOISOHSFIU")
