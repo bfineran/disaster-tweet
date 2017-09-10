@@ -3,7 +3,9 @@ import boto3
 import json
 
 print('Loading function')
-session = boto3.Session("", "") # AWS CREDENTIALS GO HERE
+with open('aws.creds') as f:
+	creds = f.read().strip().split(',')
+session = boto3.Session(aws_access_key_id=creds[0], aws_secret_access_key=creds[1])
 dynamo = session.resource('dynamodb')
 
 
