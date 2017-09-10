@@ -49,14 +49,23 @@ div.tab button.active {
 }
 
 .topright:hover {color: red;}
+
+.CSSTableGenerator{
+  width: 500px; 
+  height: 500px;
+  position: "relative"; 
+  overflow: "hidden";
+
+
+}
 </style>
 </head>
 <body>
 
 
 <div class="tab">
-  <button class="tablinks" onclick="openCity(event, 'Map')" id="defaultOpen">Map</button>
-  <button class="tablinks" onclick="openCity(event, 'Table')">Table</button>
+  <button class="tablinks" onclick="openContent(event, 'Map')" id="defaultOpen">Map</button>
+  <button class="tablinks" onclick="openContent(event, 'Table')">Table</button>
 </div>
 
 <div id="Map" class="tabcontent">
@@ -69,15 +78,20 @@ div.tab button.active {
   <span onclick="this.parentElement.style.display='none'" class="topright">x</span>
   <h3>Table</h3>
   <p>byeeee</p>
- 
+ <div id="TableDiv">
+
+ </div>
+
 </div>
 
 
 
 
-<script src="get-data.js"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
 
 <script>
+console.log("GHEIIIAW")
 function openContent(evt, cityName) {
     var i, tabcontent, tablinks;
     tabcontent = document.getElementsByClassName("tabcontent");
@@ -93,11 +107,86 @@ function openContent(evt, cityName) {
 }
 
 // Get the element with id="defaultOpen" and click on it
-document.getElementById("defaultOpen").click();
-data = httpGetAsync("https://4n47ld228f.execute-api.us-east-1.amazonaws.com/prod/disasterTweetReader", function(){
-  console.log("Callback") 
-})
-console.log(data)
+ document.getElementById("defaultOpen").click();
+// data = httpGetAsync("https://4n47ld228f.execute-api.us-east-1.amazonaws.com/prod/disasterTweetReader", function(){
+//   console.log("Callback") 
+// })
+// console.log(data)
+response_data = "";
+$( document ).ready(function() {
+      console.log( "ready!" );
+
+function makeTable(container, data) {
+    var table = $("<table/>").addClass('CSSTableGenerator');
+    $.each(data, function(rowIndex, r) {
+        var row = $("<tr/>");
+        $.each(r, function(colIndex, c) { 
+            row.append($("<t"+(rowIndex == 0 ?  "h" : "d")+"/>").text(c));
+        });
+        table.append(row);
+    });
+    container.append(table);
+}
+
+function processData(data){
+  obj = JSON.parse(data)
+  console.log(obj)
+  tweets = obj["Items"]
+  headings = ["username", "fullname", "timestamp", "address", "tweet"]
+  output = [headings]
+  console.log(tweets)
+  for (tweet of tweets) {
+    comp = [tweet["username"], tweet["fullname"], tweet["timestamp"], tweet["address"], tweet["tweet"]]
+    output.push(comp)
+  }
+  return output
+
+
+}
+
+var createCORSRequest = function(method, url) {
+  var xhr = new XMLHttpRequest();
+  if ("withCredentials" in xhr) {
+    // Most browsers.
+    xhr.open(method, url, true);
+  } else if (typeof XDomainRequest != "undefined") {
+    // IE8 & IE9
+    xhr = new XDomainRequest();
+    xhr.open(method, url);
+  } else {
+    // CORS not supported.
+    xhr = null;
+  }
+  return xhr;
+};
+
+var url = 'https://4n47ld228f.execute-api.us-east-1.amazonaws.com/prod/disasterTweetReader';
+var method = 'GET';
+var xhr = createCORSRequest(method, url);
+
+xhr.onload = function(data) {
+  console.log("Success")
+  console.log(data)
+  console.log(xhr.responseText)
+  console.log("Processing Data")
+  processedData = processData(xhr.responseText)
+  console.log(processedData)
+  table_div = $("#TableDiv")
+  makeTable(table_div, processedData)
+  // Success code goes here.
+};
+
+xhr.onerror = function() {
+  // Error code goes here.
+  console.log("Error")
+};
+
+xhr.send();
+
+});
+
+
+
 
 </script>
      
