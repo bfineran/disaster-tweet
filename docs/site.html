@@ -73,58 +73,7 @@ div.tab button.active {
   <span onclick="this.parentElement.style.display='none'" class="topright">x</span>
   <h3>Map</h3>
   <div id = "map" style="width:500px;height:500px"></div>
-    <script>
-       function geocodeAddress(geocoder, resultsMap) {
-        var address = document.getElementById('address').value;
-        geocoder.geocode({'address': address}, function(results, status) {
-          if (status === 'OK') {
-            var marker = new google.maps.Marker({
-              map: resultsMap,
-              position: results[0].geometry.location
-            });
-            marker.setMap(map);
-          } else {
-          }
-        });
-      } 
-      var map;
-      function initMap(){
-        console.log("INITMAP")
-        var coords = {lat: -25.363, lng: 131.044};
-        var myLatlng = {lat: -25.363882, lng: 131.044922};
-
-        var map = new google.maps.Map(document.getElementById('map'), {
-                zoom: 4,
-                center: coords
-                // mapTypeID: 'terrain'
-             });
-
-        for (entry of processedData){
-            address = entry[3] + " Houston, TX"
-            geocodeAddress(address, map)
-        } 
-
-        var script = document.createElement('script');
-        script.src = 'https://developers.google.com/maps/documentation/javascript/examples/json/earthquake_GeoJSONP.js';
-        document.getElementsByTagName('head')[0].appendChild(script);
-      }
-
-      window.eqfeed_callback = function(results) {
-        for (var i = 0; i < results.features.length; i++) {
-          var coords = results.features[i].geometry.coordinates;
-          var latLng = new google.maps.LatLng(coords[1],coords[0]);
-          var marker = new google.maps.Marker({
-            position: latLng,
-            map: map
-          });
-        }
-      }
-
-    </script>
-    <script
-      async defer
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDor5eoxXCKl0L-wzR1uhQ4-5IPRMDul60&callback=initMap">
-    </script></div>
+</div>
 
 <div id="Table" class="tabcontent">
   <span onclick="this.parentElement.style.display='none'" class="topright">x</span>
@@ -164,7 +113,8 @@ function openContent(evt, cityName) {
 // })
 // console.log(data)
 response_data = "";
-$( document ).ready(function() {
+var processedData = []
+function dataAndTable(){
       console.log( "ready!" );
 
 function makeTable(container, data) {
@@ -217,14 +167,28 @@ var xhr = createCORSRequest(method, url);
 
 xhr.onload = function(data) {
   console.log("Success")
-  console.log(data)
-  console.log(xhr.responseText)
   console.log("Processing Data")
-  var processedData = processData(xhr.responseText)
-  console.log(processedData)
+  processedData = processData(xhr.responseText)
   table_div = $("#TableDiv")
   makeTable(table_div, processedData)
   // Success code goes here.
+
+  console.log("INITMAP")
+    var coords = {lat: 29.7604, lng: -95.3698};
+    var geocoder = new google.maps.Geocoder();
+
+
+    var map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 7,
+            center: coords
+            // mapTypeID: 'terrain'
+         });
+    console.log(processedData)
+    for (entry of processedData){
+        address = entry[3] + " Houston, TX"
+        console.log(address)
+        geocodeAddress(geocoder, address, map)
+    } 
 };
 
 xhr.onerror = function() {
@@ -233,11 +197,52 @@ xhr.onerror = function() {
 };
 
 xhr.send();
+}
 
-});
+console.log("Begin Mapping")
 
-</script>
+   function geocodeAddress(geocoder, address, resultsMap) {
+    console.log(address)
+    geocoder.geocode({'address': address}, function(results, status) {
+      if (status === 'OK') {
+        console.log("Found GeoLocation")
+        var marker = new google.maps.Marker({
+          map: resultsMap,
+          position: results[0].geometry.location,
+          title: address
 
+        });
+      } else {
+      }
+    });
+  } 
+  var map;
+
+  function initMap(){
+    dataAndTable()
+
+    
+  }
+
+  window.eqfeed_callback = function(results) {
+    console.log(results.features)
+    for (var i = 0; i < results.features.length; i++) {
+      var coords = results.features[i].geometry.coordinates;
+      var latLng = new google.maps.LatLng(coords[1],coords[0]);
+      var marker = new google.maps.Marker({
+        position: latLng,
+        map: map
+      });
+    }
+  }
+
+
+
+    </script>
+    <script
+      async defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDor5eoxXCKl0L-wzR1uhQ4-5IPRMDul60&callback=initMap">
+    </script></div>
 
 
 </body>

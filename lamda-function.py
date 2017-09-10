@@ -1,8 +1,10 @@
 from __future__ import print_function
-
+import boto3
+import json
 
 print('Loading function')
-dynamo = boto3.client('dynamodb')
+session = boto3.Session("AKIAI4GDENM2IS4GKAFQ", "YocZ2ygfUnaGKf2eEDLvT+LN5k1mu8hfmi6wErSc")
+dynamo = session.resource('dynamodb')
 
 
 
