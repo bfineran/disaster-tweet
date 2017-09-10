@@ -4,9 +4,21 @@ import usaddress
 import datetime
 import json
 from dbfuns import DBWriter
-
+import phonenumbers
 
 import twitterscraper
+
+def searchnumber(wholetext):
+	try:
+		x = phonenumbers.parse(wholetext)
+		numberstr = str(x)
+		idx = numberstr.find("National Number: ")
+		realnumber = numberstr[(idx+17):(idx+17+10)]
+		return realnumber
+	except:
+		return 0000000
+
+
 
 def searchquery(keyword, numsearches, filename, sinceid):
 	maxid = sinceid
@@ -24,7 +36,8 @@ def searchquery(keyword, numsearches, filename, sinceid):
 			timestr = tweet.timestamp.strftime("%Y-%m-%d %H:%M:%S")
 			print(text)
 			print(addr)
-			contents = tweet.fullname.encode('utf-8') + '\t' + tweet.user.encode('utf-8') + '\t' + timestr + '\t' + text + '\t' + json.dumps(dict(addr)) + "\t" + "\n"
+			realphone = searchnumber(text)
+			contents = tweet.fullname.encode('utf-8') + '\t' + tweet.user.encode('utf-8') + '\t' + timestr + '\t' +  str(realphone) + '\t' + text + '\t' + json.dumps(dict(addr)) + "\t" + "\n"
 			filename.write(contents)
 
 			addrs = dict(addr)
@@ -36,7 +49,7 @@ def searchquery(keyword, numsearches, filename, sinceid):
 			if 'StreetName' not in addrs:
 				b = False
 			if b:
-				address = addrs['AddressNumber'] + ' ' + addrs['StreetName'] + ' ' + addrs['StreetNamePosType'] + '\t' + timestr
+				address = addrs['AddressNumber'] + ' ' + addrs['StreetName'] + ' ' + addrs['StreetNamePosType']
 				writer.add_item(str(address), tweet.user.encode('utf-8'), tweet.fullname.encode('utf-8'), text, timestr, 'Houston, TX')
 
 
