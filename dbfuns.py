@@ -36,10 +36,11 @@ class DBWriter(object):
 	def __init__(self):
 		self.items = []
 
-	def add_item(self, address, username, tweet, timestamp, region):
+	def add_item(self, address, username, fullname, tweet, timestamp, region):
 		item = {}
 		item['address'] = address
 		item['username'] = username
+		item['fullname'] = fullname
 		item['tweet'] = tweet
 		item['timestamp'] = timestamp
 		item['region'] = region

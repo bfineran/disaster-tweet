@@ -24,7 +24,7 @@ def searchquery(keyword, numsearches, filename, sinceid):
 			timestr = tweet.timestamp.strftime("%Y-%m-%d %H:%M:%S")
 			print(text)
 			print(addr)
-			contents = tweet.user.encode('utf-8') + '\t' + timestr + '\t' + text + '\t' + json.dumps(dict(addr)) + "\t" + "\n"
+			contents = tweet.fullname.encode('utf-8') + '\t' + tweet.user.encode('utf-8') + '\t' + timestr + '\t' + text + '\t' + json.dumps(dict(addr)) + "\t" + "\n"
 			filename.write(contents)
 
 			addrs = dict(addr)
@@ -37,7 +37,7 @@ def searchquery(keyword, numsearches, filename, sinceid):
 				b = False
 			if b:
 				address = addrs['AddressNumber'] + ' ' + addrs['StreetName'] + ' ' + addrs['StreetNamePosType'] + '\t' + timestr
-				writer.add_item(str(address), tweet.user.encode('utf-8'), text, timestr, 'Houston, TX')
+				writer.add_item(str(address), tweet.user.encode('utf-8'), tweet.fullname.encode('utf-8'), text, timestr, 'Houston, TX')
 
 
 
