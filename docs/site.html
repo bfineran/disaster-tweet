@@ -71,8 +71,39 @@ div.tab button.active {
 <div id="Map" class="tabcontent">
   <span onclick="this.parentElement.style.display='none'" class="topright">x</span>
   <h3>Map</h3>
-  <p>Helllo</p>
-</div>
+  <div id = "map" style="width:500px;height:500px"></div>
+    <script>
+      var map;
+      function initMap(){
+        console.log("INITMAP")
+        var coords = {lat: -25.363, lng: 131.044};
+         var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 4,
+                center: coords
+                // mapTypeID: 'terrain'
+             });
+
+        var script = document.createElement('script');
+        script.src = 'https://developers.google.com/maps/documentation/javascript/examples/json/earthquake_GeoJSONP.js';
+        document.getElementsByTagName('head')[0].appendChild(script);
+      }
+
+      window.eqfeed_callback = function(results) {
+        for (var i = 0; i < results.features.length; i++) {
+          var coords = results.features[i].geometry.coordinates;
+          var latLng = new google.maps.LatLng(coords[1],coords[0]);
+          var marker = new google.maps.Marker({
+            position: latLng,
+            map: map
+          });
+        }
+      }
+
+    </script>
+    <script
+      async defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDor5eoxXCKl0L-wzR1uhQ4-5IPRMDul60&callback=initMap">
+    </script></div>
 
 <div id="Table" class="tabcontent">
   <span onclick="this.parentElement.style.display='none'" class="topright">x</span>
@@ -185,10 +216,9 @@ xhr.send();
 
 });
 
-
-
-
 </script>
-     
+
+
+
 </body>
 </html> 
