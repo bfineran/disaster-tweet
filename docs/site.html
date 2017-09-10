@@ -74,15 +74,35 @@ div.tab button.active {
   <h3>Map</h3>
   <div id = "map" style="width:500px;height:500px"></div>
     <script>
+       function geocodeAddress(geocoder, resultsMap) {
+        var address = document.getElementById('address').value;
+        geocoder.geocode({'address': address}, function(results, status) {
+          if (status === 'OK') {
+            var marker = new google.maps.Marker({
+              map: resultsMap,
+              position: results[0].geometry.location
+            });
+            marker.setMap(map);
+          } else {
+          }
+        });
+      } 
       var map;
       function initMap(){
         console.log("INITMAP")
         var coords = {lat: -25.363, lng: 131.044};
-         var map = new google.maps.Map(document.getElementById('map'), {
+        var myLatlng = {lat: -25.363882, lng: 131.044922};
+
+        var map = new google.maps.Map(document.getElementById('map'), {
                 zoom: 4,
                 center: coords
                 // mapTypeID: 'terrain'
              });
+
+        for (entry of processedData){
+            address = entry[3] + " Houston, TX"
+            geocodeAddress(address, map)
+        } 
 
         var script = document.createElement('script');
         script.src = 'https://developers.google.com/maps/documentation/javascript/examples/json/earthquake_GeoJSONP.js';
@@ -200,7 +220,7 @@ xhr.onload = function(data) {
   console.log(data)
   console.log(xhr.responseText)
   console.log("Processing Data")
-  processedData = processData(xhr.responseText)
+  var processedData = processData(xhr.responseText)
   console.log(processedData)
   table_div = $("#TableDiv")
   makeTable(table_div, processedData)
